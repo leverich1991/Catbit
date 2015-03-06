@@ -1,0 +1,14 @@
+<h1>Settings</h1>
+<h2>Name</h2>
+	<%= search_field(:user, :name) %>
+	<input id="user_name" name="user[name]" type="search" />
+<h3>Age</h3>
+	<%= number_field(:data, :age, in: 1.0..99.0) %>
+	<input id="user_age" name="user[age]" type="data" />
+<h4>Height</h4>
+	<%= number_field(:data, :height, in: 1.0..99.0, step: 0.1) %>
+	<input id="user_height" name="user[height]" type="data" />
+<h5>Weight</h5>
+	<%= number_field(:data, :weight, in: 1.0..999.0, step: 0.1) %>
+	<input id="user_weight" name="user[weight]" type="data" />
+<%= link_to 'Back', new_catbit %>

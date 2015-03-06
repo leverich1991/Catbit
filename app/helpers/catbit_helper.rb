@@ -1,0 +1,2 @@
+module CatbitHelper
+end

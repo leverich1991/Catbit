@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  steps: 1
+  distance: 1.5
+  calories: 1
+  points: 1
+
+two:
+  user_id: 
+  steps: 1
+  distance: 1.5
+  calories: 1
+  points: 1
