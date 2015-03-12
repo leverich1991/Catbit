@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   render 'main'  
   end
   def destroy
-     log_out
+  @session = nil
   end
   def current_user
 	User.find_by(id: session[:user_id])

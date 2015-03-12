@@ -23,3 +23,19 @@
     </nav>
   </div>
 </header>
+<h1>Distance</h1>
+	<div id="distance" style="height: 200px;"></div>
+	<script>
+	new Morris.Line({
+	element: 'distance',
+	data: [
+    { day: '1', value: 300 },
+    { day: '2', value: 50 },
+    { day: '3', value: 400 },
+    { day: '4', value: 180 },
+    { day: '5', value: 120 }
+  ],
+  xkey: 'day',
+  ykeys: ['value'],
+  labels: ['Value']
+});</script>

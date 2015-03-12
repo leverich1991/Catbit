@@ -1,16 +1,46 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Home", sessions_main_path %></li> 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Menu <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Settings", sessions_settings_path %></li>
+			  <li><%= link_to "Goals", sessions_goals_path %></li>
+			  <li><%= link_to "Calories", sessions_calories_path %></li>
+			  <li><%= link_to "Steps", sessions_steps_path %></li>
+			  <li><%= link_to "Distance", sessions_distance_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path %>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 <h1>Settings</h1>
-
-
 <h2>Name</h2>
+	<%= form_tag('/sessions') do -%>
 	<%= search_field(:user, :name) %>
-	<input id="user_name" name="user[name]" type="search" />
-<h3>Age</h3>
+	<div><%= submit_tag 'Name' %></div>
+	<% end -%>
+<h2>Age</h2>
+	<%= form_tag('/sessions') do -%>
 	<%= number_field(:data, :age, in: 1.0..99.0) %>
-	<input id="user_age" name="user[age]" type="data" />
-<h4>Height</h4>
+	<div><%= submit_tag 'Age' %></div>
+	<% end -%>
+<h2>Height</h2>
+	<%= form_tag('/sessions') do -%>
 	<%= number_field(:data, :height, in: 1.0..99.0, step: 0.1) %>
-	<input id="user_height" name="user[height]" type="data" />
-<h5>Weight</h5>
+	<div><%= submit_tag 'Height' %></div>
+	<% end -%>
+<h2>Weight</h2>
+	<%= form_tag('/sessions') do -%>
 	<%= number_field(:data, :weight, in: 1.0..999.0, step: 0.1) %>
-	<input id="user_weight" name="user[weight]" type="data" />
-<%= link_to 'Back', sessions_main_path %>
+	<div><%= submit_tag 'Weight' %></div>
+	<% end -%>

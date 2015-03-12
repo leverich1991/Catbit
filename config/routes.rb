@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   get 'sessions/settings'
   get 'sessions/goals'
+  get 'sessions/calories'
+  get 'sessions/steps'
+  get 'sessions/distance'
   get 'sessions/main'
   get 'graphchart/index'
   match ':controller(/:action(/:id))', :via => :get
   get 'login' => 'sessions#new'
   post 'sessions' => 'sessions#create'
-  #get 'page' => 'sessions#show'
   get 'logout' => 'sessions#destroy'
   
   resources :catbit do
