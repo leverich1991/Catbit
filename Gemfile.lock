@@ -61,6 +61,7 @@ GEM
       oauth
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    hashie (3.4.0)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.11)
@@ -81,9 +82,19 @@ GEM
     morrisjs-rails (0.5.1)
       railties (> 3.1, < 5)
     multi_json (1.11.0)
+    multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-fitbit (1.0.4)
+      multi_xml
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -166,6 +177,8 @@ DEPENDENCIES
   json
   morrisjs-rails
   oauth
+  omniauth
+  omniauth-fitbit
   rails (= 4.2.0)
   raphael-rails
   sass-rails (~> 5.0)

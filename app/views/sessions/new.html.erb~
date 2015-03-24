@@ -11,5 +11,5 @@
   
   <%= submit_tag('login') %>
 <% end %>
-<%= link_to "Login Using Fitbit Account", "/auth/fitbit" %>
+<%= link_to "Login Using Fitbit Account", "/auth/fitbit/callback" %>
 

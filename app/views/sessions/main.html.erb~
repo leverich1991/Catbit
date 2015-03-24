@@ -25,7 +25,7 @@
 </header>
 
 
-<p><%= render :text => @client.activities_on_date('today') %></p>
+<p><%= render :text => @client.activities_on_date 'today' %></p>
 
 <h1>Steps</h1>
 	<div id="steps" style="height: 200px;"></div>
