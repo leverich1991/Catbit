@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'sessions/steps'
   get 'sessions/distance'
   get 'sessions/main'
-  get 'graphchart/index'
   match ':controller(/:action(/:id))', :via => :get
   get 'login' => 'sessions#new'
   #post 'sessions' => 'sessions#create'

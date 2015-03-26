@@ -1,7 +1,7 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <div class="container">
     <nav>
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav">
         <li><%= link_to "Home", sessions_main_path %></li> 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -29,13 +29,15 @@
 	new Morris.Line({
 	element: 'calories',
 	data: [
-    { day: '1', value: 1500 },
+    { day: '1', value: <%= @daily_activity['summary']['caloriesOut'] %> },
     { day: '2', value: 1800 },
     { day: '3', value: 1200 },
     { day: '4', value: 500 },
     { day: '5', value: 700 }
   ],
   xkey: 'day',
+  parseTime: false,
   ykeys: ['value'],
-  labels: ['Value']
+  labels: ['Value'],
+  lineColors: ['red']
 });</script>

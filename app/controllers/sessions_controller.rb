@@ -5,6 +5,18 @@ class SessionsController < ApplicationController
   def show
   @catbit = Fitbit.find(params[:id])
   end
+  def calories
+  @client = current_user.fitbit
+  @daily_activity = @client.activities_on_date 'today'
+  end
+  def steps
+  @client = current_user.fitbit
+  @daily_activity = @client.activities_on_date 'today'
+  end
+  def distance
+  @client = current_user.fitbit
+  @daily_activity = @client.activities_on_date 'today'
+  end
   def create
   #@user = User.find_or_create_from_auth_hash(auth_hash)
   #self.current_user = @user
