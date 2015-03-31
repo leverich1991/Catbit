@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  #layout "_header"
   def new
   end
   def show
@@ -17,6 +16,23 @@ class SessionsController < ApplicationController
   @client = current_user.fitbit
   @daily_activity = @client.activities_on_date 'today'
   end
+  
+  def main
+	#@user = User.find_or_create_from_auth_hash(auth_hash)
+  #self.current_user = @user
+  auth_hash = request.env['omniauth.auth']
+ 
+  # Log him in or sign him up
+  user = User.find_or_create(auth_hash)
+ 
+  # Create the session
+  session[:user_id] = user.id
+  
+  @client = user.fitbit
+  @daily_activity = @client.activities_on_date 'today'
+  #render :text => daily_activity  
+  end
+  
   def create
   #@user = User.find_or_create_from_auth_hash(auth_hash)
   #self.current_user = @user
@@ -42,7 +58,7 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    #render :text => "You've logged out!"
+    render 'new'
   end
 
   def failure

@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <div class="container">
     <nav>
       <ul class="nav navbar-nav navbar-left">
@@ -25,6 +25,12 @@
 </header>
 <h1>Goals</h1>
 <%= form_tag('/sessions') do -%>
-  <%= search_field(:user, :goals) %>
-  <div><%= submit_tag 'Save' %></div>
+	<%= number_field(:data, :number, in: 1..99999) %>
+		<%= radio_button_tag(:input, "Calories") %>
+		<%= label_tag(:input_calories, "Calories") %>
+		<%= radio_button_tag(:input, "Steps") %>
+		<%= label_tag(:input_steps, "Steps") %>
+		<%= radio_button_tag(:input, "Distance") %>
+		<%= label_tag(:input_distance, "Distance (miles)") %>
+	<div><%= submit_tag 'Submit Goal' %></div>
 <% end -%>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/distance'
   get 'sessions/main'
   match ':controller(/:action(/:id))', :via => :get
+  
   get 'login' => 'sessions#new'
   #post 'sessions' => 'sessions#create'
   get 'logout' => 'sessions#destroy'

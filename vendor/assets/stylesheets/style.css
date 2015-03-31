@@ -1,0 +1,9 @@
+html,
+body {
+padding:10;
+margin:5;
+}
+body {
+font:16px/2em arial, "Arial", helvetica, arial;
+background-color:#c24bd3;
+}
