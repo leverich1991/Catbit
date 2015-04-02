@@ -5,5 +5,34 @@ margin:5;
 }
 body {
 font:16px/2em arial, "Arial", helvetica, arial;
-background-color:#c24bd3;
+background-color:#f3f781;
+}
+body.new {
+background-color:green;
+}
+#topmenu {
+width: 1500px;
+margin-right:auto;
+margin-left:auto;
+background-color:#4000ff;
+}
+ul.nav {
+	display:inline-block;
+	position:relative;
+	top:20px;
+	width:1000px;
+}
+ul.nav dropdown_menu {
+	display:none;
+	width:1000px;
+}
+ul.nav li {
+	list-style-type:none;
+	float:left;
+}
+ul.nav li a {
+	display:block;
+	font-weight:bold;
+	color:#f2f2f2;
+	padding:5px 10px;
 }
