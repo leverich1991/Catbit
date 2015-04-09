@@ -1,8 +1,8 @@
 <div id="topmenu">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Menu </a>
 		<ul class="nav">
-			<li><%= link_to "Home", sessions_main_path %></li> 
-				<ul class="dropdown-menu">
+			<li><%= link_to "Home", sessions_main_path %></li>
+			<li><img src="/catbitmenubar.png" alt="catbit logo" /></li>
+				<ul>
 					<li><%= link_to "Settings", sessions_settings_path %></li>
 					<li><%= link_to "Goals", sessions_goals_path %></li>
 					<li><%= link_to "Calories", sessions_calories_path %></li>
@@ -10,6 +10,9 @@
 					<li><%= link_to "Distance", sessions_distance_path %></li>
 					<li><%= link_to "Log out", logout_path %></li>
 				</ul>
+		</ul>
+		<ul class="name">
+			<li><%= render :text => "name" %></li>
 		</ul>
 </div>
 <h1>Goals</h1>

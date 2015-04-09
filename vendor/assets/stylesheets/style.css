@@ -7,9 +7,6 @@ body {
 font:16px/2em arial, "Arial", helvetica, arial;
 background-color:#f3f781;
 }
-body.new {
-background-color:green;
-}
 #topmenu {
 width: 1500px;
 margin-right:auto;
@@ -19,20 +16,39 @@ background-color:#4000ff;
 ul.nav {
 	display:inline-block;
 	position:relative;
-	top:20px;
+	top:10px;
 	width:1000px;
 }
-ul.nav dropdown_menu {
-	display:none;
-	width:1000px;
+ul.nav ul {
+	display: block;
+	width:500px;
 }
 ul.nav li {
+	display: inline;
 	list-style-type:none;
 	float:left;
 }
-ul.nav li a {
+ul.nav li ul{
+	display: block;
+	width: 500px;
+	float:left;
+}
+ul.nav li ul li {
+	display: none;
+	width: 500px;
+	float:left;
+}
+ul.nav li ul:hover li {
 	display:block;
-	font-weight:bold;
-	color:#f2f2f2;
-	padding:5px 10px;
+	position:absolute;
+	margin:0;
+	padding:0 0 10px 0;
+	z-index:900;
+}
+ul.name {
+	float:right;
+}
+ul.name li {
+	list-style-type: none;
+	padding: 10px;
 }
