@@ -2,6 +2,10 @@ class DataController < ApplicationController
   def show
     @datum = Datum.where(user_id: current_user).first
   end
+  def create(data_hash)
+    @user = User.find_by(id: session[:user_id])
+    @data = @user.datas.create(data_hash)
+  end
   def change_goals
     @client = current_user.fitbit
 	@client.create_or_update_daily_goal(@opts)

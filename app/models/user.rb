@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+has_many :datas
 validates :oauth_token, :oauth_secret, :uid, :name, :presence =>true
 def self.find_or_create(auth_hash)
     unless user = find_by_uid(auth_hash["uid"])

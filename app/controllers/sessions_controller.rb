@@ -40,7 +40,9 @@ class SessionsController < ApplicationController
   session[:user_id] = user.id
   
   @client = user.fitbit
+  Datum.delete_all
   @daily_activity = @client.activities_on_date 'today'
+  retreive_week_data
   render 'main'
   #redirect_to 'main' Does not work  
   end
@@ -73,6 +75,7 @@ class SessionsController < ApplicationController
 	elsif current_page?('sessions/goals')
 	#elsif (params[:action] == 'goals.1')
 	current_user.update(goal_params)
+	@client.create_or_update_daily_goal(@opts)
 	@points_algorithm = current_user[:points]
 	render 'goals'
 	end
@@ -87,6 +90,28 @@ class SessionsController < ApplicationController
   end
 
   protected
+  def retreive_week_data
+    @daily_activity = @client.activities_on_date 'today'
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 0
+    
+    @daily_activity = @client.activities_on_date (Time.now-1.day)
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 1
+
+    @daily_activity = @client.activities_on_date (Time.now-2.day)
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 2
+
+    @daily_activity = @client.activities_on_date (Time.now-3.day)
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 3
+
+    @daily_activity = @client.activities_on_date (Time.now-4.day)
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 4
+
+    @daily_activity = @client.activities_on_date (Time.now-5.day)
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 5
+
+    @daily_activity = @client.activities_on_date (Time.now-6.day)
+    Datum.create :steps => @daily_activity['summary']['steps'], :steps_goal => @daily_activity['goals']['steps'], :distance => @daily_activity['summary']['distances'][0]['distance'] , :distance_goal => @daily_activity['goals']['distance'], :calories => @daily_activity['summary']['caloriesOut'], :calories_goal => @daily_activity['goals']['caloriesOut'], :date => 6
+  end
   def user_params
     params.require(:user).permit(:name, :age, :height, :weight)
   end

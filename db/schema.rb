@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418012021) do
+ActiveRecord::Schema.define(version: 20150421220840) do
 
   create_table "data", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,8 +20,13 @@ ActiveRecord::Schema.define(version: 20150418012021) do
     t.float    "distance"
     t.integer  "calories"
     t.integer  "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "date"
+    t.integer  "steps_goal"
+    t.float    "distance_goal"
+    t.integer  "calories_goal"
+    t.integer  "article_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

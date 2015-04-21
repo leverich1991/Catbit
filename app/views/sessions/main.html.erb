@@ -31,7 +31,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a><img width="75%"src="/catbitIcon.png" alt="catbit logo" /></a>
+      <a><img width="auto"src="/catbitIcon.png" alt="catbit logo" /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,16 +60,16 @@
 
 <center><h1>Steps</h1></center>
 <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow= "<%= @daily_activity['summary']['steps'] %>" aria-valuemin="0" aria-valuemax= "<%= @daily_activity['goals']['steps'] %>" style="width: <%= ((@daily_activity['summary']['steps'].to_f / @daily_activity['goals']['steps'].to_f)*100).round(2) %>%; min-width: 3em;">
-  <%= ((@daily_activity['summary']['steps'].to_f / @daily_activity['goals']['steps'].to_f)*100).round(2) %>%
+  <div class="progress-bar" role="progressbar" aria-valuenow= "<%= Datum.find_by(date: 0)[:steps] %>" aria-valuemin="0" aria-valuemax= "<%= Datum.find_by(date: 0)[:steps_goal] %>" style="width: <%= ((Datum.find_by(date: 0)[:steps].to_f / @daily_activity['goals']['steps'].to_f)*100).round(2) %>%; min-width: 3em;">
+  <%= ((Datum.find_by(date: 0)[:steps].to_f / Datum.find_by(date: 0)[:steps_goal].to_f)*100).round(2) %>%
   </div>
 </div>
 <br><br>
 <center><h1>Distance</h1></center>
 
 <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow= "<%= @daily_activity['summary']['distances'][0]['distance'] %>" aria-valuemin="0" aria-valuemax= "<%= @daily_activity['goals']['distance'] %>" style="width: <%= ((@daily_activity['summary']['distances'][0]['distance'].to_f / @daily_activity['goals']['distance'].to_f)*100).round(2) %>%; min-width: 3em">
-  <%= ((@daily_activity['summary']['distances'][0]['distance'].to_f / @daily_activity['goals']['distance'].to_f)*100).round(2) %>%
+  <div class="progress-bar" role="progressbar" aria-valuenow= "<%= Datum.find_by(date: 0)[:distance] %>" aria-valuemin="0" aria-valuemax= "<%= Datum.find_by(date: 0)[:distance_goal] %>" style="width: <%= ((Datum.find_by(date: 0)[:distance].to_f / Datum.find_by(date: 0)[:distance_goal].to_f)*100).round(2) %>%; min-width: 3em">
+  <%= ((Datum.find_by(date: 0)[:distance].to_f / Datum.find_by(date: 0)[:distance_goal].to_f)*100).round(2) %>%
   </div>
 </div>
 <br><br>
@@ -78,8 +78,8 @@
 <center><h1>Calories</h1></center>
 
 <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow= "<%= @daily_activity['summary']['caloriesOut'] %>" aria-valuemin="0" aria-valuemax= "<%= @daily_activity['goals']['caloriesOut'] %>" style="width: <%= ((@daily_activity['summary']['caloriesOut'].to_f / @daily_activity['goals']['caloriesOut'].to_f)*100).round(2) %>%; min-width: 3em">
-  <%= ((@daily_activity['summary']['caloriesOut'].to_f / @daily_activity['goals']['caloriesOut'].to_f)*100).round(2) %>%
+  <div class="progress-bar" role="progressbar" aria-valuenow= "<%= Datum.find_by(date: 0)[:calories] %>" aria-valuemin="0" aria-valuemax= "<%= Datum.find_by(date: 0)[:calories_goal] %>" style="width: <%= ((Datum.find_by(date: 0)[:calories].to_f / Datum.find_by(date: 0)[:calories_goal].to_f)*100).round(2) %>%; min-width: 3em">
+  <%= ((Datum.find_by(date: 0)[:calories].to_f / Datum.find_by(date: 0)[:calories_goal].to_f)*100).round(2) %>%
   </div>
 </div>
 <br><br>
