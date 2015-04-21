@@ -1,0 +1,83 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Home", sessions_main_path %></li> 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Menu <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Settings", sessions_settings_path %></li>
+			  <li><%= link_to "Goals", sessions_goals_path %></li>
+			  <li><%= link_to "Calories", sessions_calories_path %></li>
+			  <li><%= link_to "Steps", sessions_steps_path %></li>
+			  <li><%= link_to "Distance", sessions_distance_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path %>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<p><%= render :text => @client.activities_on_date 'today' %></p>
+
+<h1>Steps</h1>
+	<div id="steps" style="height: 200px;"></div>
+	<script>
+	new Morris.Line({
+	element: 'steps',
+	data: [
+    { day: '1', value: 1200 },
+    { day: '2', value: 250 },
+    { day: '3', value: 1500 },
+    { day: '4', value: 550 },
+    { day: '5', value: 500 }
+  ],
+  xkey: 'day',
+  ykeys: ['value'],
+  labels: ['Value']
+});</script>
+<br><br>
+<h1>Distance</h1>
+	<div id="distance" style="height: 200px;"></div>
+	<script>
+	new Morris.Line({
+	element: 'distance',
+	data: [
+    { day: '1', value: 300 },
+    { day: '2', value: 50 },
+    { day: '3', value: 400 },
+    { day: '4', value: 180 },
+    { day: '5', value: 120 }
+  ],
+  xkey: 'day',
+  ykeys: ['value'],
+  labels: ['Value']
+});</script>
+<br><br>
+<h1>Calories</h1>
+	<div id="calories" style="height: 200px;"></div>
+	<script>
+	new Morris.Line({
+	element: 'calories',
+	data: [
+    { day: '1', value: 1500 },
+    { day: '2', value: 1700 },
+    { day: '3', value: 1400 },
+    { day: '4', value: 1650 },
+    { day: '5', value: 1800 }
+  ],
+  xkey: 'day',
+  ykeys: ['value'],
+  labels: ['Value']
+});</script>
+<br><br>
+<h1>You Earned:</h1>
+<h2>0 Points</h2>
+	

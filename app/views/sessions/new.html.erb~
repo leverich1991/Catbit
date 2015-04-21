@@ -1,0 +1,15 @@
+<h1>Login</h1>
+
+<%= flash[:danger] %>
+
+<%= form_tag '/sessions', method: "POST" do |f| %>
+  <h1>Username</h1>
+  <input id="username" name="username" type="username" />
+
+  <h2>Password</h2>
+  <input id="password" name="password" type="password" />
+  
+  <%= submit_tag('login') %>
+<% end %>
+<%= link_to "Login Using Fitbit Account", "/auth/fitbit/callback" %>
+
