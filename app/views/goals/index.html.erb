@@ -1,0 +1,16 @@
+<h1>Goals</h1>
+<%= form_for(current_user) do |f| %>
+	<%= f.number_field(:points, in: 1..99999) %>
+		<%= radio_button_tag(:input, "Calories") %>
+		<%= label_tag(:input, "Calories") %>
+		<%= radio_button_tag(:input, "Steps") %>
+		<%= label_tag(:input, "Steps") %>
+		<%= radio_button_tag(:input, "Distance") %>
+		<%= label_tag(:input, "Distance (miles)") %>
+	<div><%= f.submit 'Create Goal' %></div>
+<% end -%>
+<h2>List of Goals TEST</h2>
+<%= @goals["activeScore"] %>
+<%= @goals["caloriesOut"] %>
+<%= @goals["distance"] %>
+<%= @goals["steps"] %>

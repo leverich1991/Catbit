@@ -14,5 +14,15 @@ def fitbit
     access_token = client.reconnect(self.oauth_token, self.oauth_secret)
     client
 end
+ # Also used for Goals page
+  def points_algorithm
+	if current_user[:input] = "Calories"
+	current_user[:points] = (@daily_activity['goals']['steps'] * 0.1)
+	elsif current_user[:input] = "Distance"
+	current_user[:points] = (@daily_activity['goals']['distance'] * 10)
+	elsif current_user[:input] = "Steps"
+	current_user[:points] = (@daily_activity['goals']['caloriesOut'] * 0.1)
+	end
+  end
 
 end

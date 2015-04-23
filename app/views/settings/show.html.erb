@@ -1,0 +1,23 @@
+<h1>Settings</h1>
+<%= form_for(@user, url: '/settings') do |f| %>
+  <h2>Name</h2>
+  <%= f.text_field(:name) %>
+  <h2>Age</h2>
+  <%= f.number_field(:age, in: 1.0..99.0) %>
+  <h2>Height</h2>
+  <%= f.number_field(:height, in: 1.0..99.0) %>
+  <h2>Weight</h2>
+  <%= f.number_field(:weight, in: 1.0..999.0) %>
+  <%= f.submit 'Save' %>
+<% end %>
+
+<h1>Settings TEST</h1>
+Age:<%= current_user[:age] %>
+<br>
+Height:<%= current_user[:height] %>
+<br>
+Weight:<%= current_user[:weight] %>
+<br>
+BMI:<%= (current_user[:weight] * 703) / (current_user[:height] * current_user[:height]) %> 
+
+
