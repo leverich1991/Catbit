@@ -22,7 +22,7 @@
   </head>
   
   <body>
-  
+   <% if logged_in? %>
    <nav class="navbar navbar-default">
 	  <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -39,12 +39,12 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav">
-			<li role="presentation" <%= params[:controller] == "sessions" ? 'class="active"'.html_safe : '' %>><%= link_to "Main",sessions_main_path   %></li>
+			<li role="presentation" <%= params[:view] == "Main" ? 'class="active"'.html_safe : '' %>><%= link_to "Main",sessions_main_path   %></li>
 			<li role="presentation" <%= params[:controller] == "settings" ? 'class="active"'.html_safe : '' %>><%= link_to "Settings", settings_path %></li>
 			<li role="presentation" <%= params[:controller] == "goals" ? 'class="active"'.html_safe : '' %>><%= link_to "Goals", goals_path %></li>
-			<li role="presentation" <%= params[:controller] == "sessions" ? 'class="active"'.html_safe : '' %>><%= link_to "Calories",sessions_calories_path %></li>
-			<li role="presentation" <%= params[:controller] == "sessions" ? 'class="active"'.html_safe : '' %>><%= link_to "Steps",sessions_steps_path %></li>
-			<li role="presentation" <%= params[:controller] == "sessions" ? 'class="active"'.html_safe : '' %>><%= link_to "Distance",sessions_distance_path %></li>
+			<li role="presentation" <%= params[:view] == "Calories" ? 'class="active"'.html_safe : '' %>><%= link_to "Calories",sessions_calories_path %></li>
+			<li role="presentation" <%= params[:view] == "Steps" ? 'class="active"'.html_safe : '' %>><%= link_to "Steps",sessions_steps_path %></li>
+			<li role="presentation" <%= params[:view] == "Distance" ? 'class="active"'.html_safe : '' %>><%= link_to "Distance",sessions_distance_path %></li>
 			<li role="presentation" ><%= link_to "Log out", logout_path %></li>      
 			</li>
 		  </ul>
@@ -55,6 +55,7 @@
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	<% end %>
 
     <%= yield %>
 
@@ -65,4 +66,4 @@
     <script src="js/bootstrap.min.js"></script>
 	
 </body>
-</html>
+</html
